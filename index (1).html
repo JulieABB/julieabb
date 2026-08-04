@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Julie Anne Baron — Customer Service Specialist</title>
+<meta name="description" content="Julie Anne Baron — Customer Service Specialist / Process Executive. 7 years supporting U.S. and international clients across chat, email, and phone.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rough.js/4.6.6/rough.umd.min.js"></script>
+
+<style>
+  :root{
+    --paper:#faf3e6;
+    --paper-line:#cfe0ee;
+    --ink:#1f2d3d;
+    --blue:#1e4d8b;
+    --blue-deep:#123061;
+    --blue-soft:#a9c8e8;
+    --orange:#f2761f;
+    --orange-soft:#ffd8ae;
+    --pencil:#3a3a3a;
+    --gap: clamp(1.2rem, 3vw, 2.2rem);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    background-image:
+      repeating-linear-gradient(var(--paper) 0px, var(--paper) 33px, var(--paper-line) 34px);
+    background-attachment:local;
+  }
+
+  /* margin line like notebook paper, desktop only */
+  body::before{
+    content:"";
+    position:fixed;
+    top:0; bottom:0; left:64px;
+    width:2px;
+    background:var(--orange-soft);
+    opacity:.55;
+    z-index:0;
+  }
+  @media (max-width:720px){ body::before{ left:26px; } }
+
+  h1,h2,h3{
+    font-family:'Kalam', cursive;
+    font-weight:700;
+    margin:0;
+    color:var(--blue-deep);
+  }
+
+  a{color:var(--blue);}
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 clamp(20px,5vw,40px);
+    position:relative;
+    z-index:1;
+  }
+
+  /* ---------- sketchy border utility (drawn via rough.js) ---------- */
+  .sketch-card{ position:relative; }
+  .sketch-card svg.sketch-border{
+    position:absolute; inset:0; width:100%; height:100%;
+    overflow:visible;
+    pointer-events:none;
+  }
+  .sketch-card .inner{ position:relative; padding:1.6rem 1.7rem; }
+
+  /* ---------- NAV ---------- */
+  header.topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,243,230,.92);
+    backdrop-filter:blur(3px);
+    border-bottom:2.5px solid var(--pencil);
+  }
+  .topbar-inner{
+    max-width:920px; margin:0 auto;
+    padding:.85rem clamp(20px,5vw,40px);
+    display:flex; align-items:center; justify-content:space-between;
+    gap:1rem; flex-wrap:wrap;
+  }
+  .brand{
+    font-family:'Kalam', cursive;
+    font-size:1.25rem; font-weight:700;
+    color:var(--blue-deep);
+    display:flex; align-items:center; gap:.5rem;
+  }
+  .brand svg{width:26px;height:26px;flex:0 0 auto;}
+  nav.topnav{ display:flex; gap:1.1rem; flex-wrap:wrap; }
+  nav.topnav a{
+    font-family:'Kalam', cursive;
+    font-size:1.05rem;
+    text-decoration:none;
+    color:var(--ink);
+    position:relative;
+    padding:2px 2px;
+  }
+  nav.topnav a:hover{ color:var(--orange); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:clamp(3rem,7vw,5rem) 0 2.5rem;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:2rem;
+    align-items:center;
+  }
+  @media (max-width:640px){ .hero{ grid-template-columns:1fr; } }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:.5rem;
+    font-family:'Space Mono', monospace;
+    font-size:.78rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--blue);
+    background:var(--blue-soft);
+    border:2px solid var(--pencil);
+    border-radius:20px;
+    padding:.3rem .8rem;
+    transform:rotate(-1.2deg);
+    margin-bottom:1rem;
+  }
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);display:inline-block;animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    line-height:1.05;
+    position:relative;
+    display:inline-block;
+  }
+  .hero h1 .underline{
+    display:block; width:100%; height:14px; margin-top:.15em;
+  }
+  .hero .role{
+    font-family:'Kalam', cursive;
+    font-size:clamp(1.1rem,2.6vw,1.4rem);
+    color:var(--orange);
+    margin-top:.4rem;
+  }
+  .hero p.summary{
+    max-width:52ch;
+    margin-top:1rem;
+    color:var(--pencil);
+  }
+  .hero-contacts{
+    display:flex; flex-wrap:wrap; gap:.6rem 1.1rem;
+    margin-top:1.4rem;
+    font-family:'Space Mono', monospace;
+    font-size:.85rem;
+  }
+  .hero-contacts a, .hero-contacts span{
+    display:inline-flex; align-items:center; gap:.4rem;
+    color:var(--ink); text-decoration:none;
+  }
+  .hero-contacts svg{width:16px;height:16px;stroke:var(--blue);}
+
+  .hero-doodle{ width:min(230px,38vw); flex:0 0 auto; justify-self:center; }
+
+  /* ---------- SECTION HEADINGS ---------- */
+  section{ padding:2.6rem 0; }
+  .sec-head{ display:flex; align-items:center; gap:.7rem; margin-bottom:1.6rem; }
+  .sec-head .tag{
+    font-family:'Space Mono', monospace;
+    font-size:.72rem; color:#fff; background:var(--blue);
+    padding:.18rem .5rem; border-radius:4px; transform:rotate(-2deg);
+  }
+  .sec-head h2{ font-size:clamp(1.6rem,3.5vw,2.1rem); }
+  .sec-head svg{ width:28px; height:28px; flex:0 0 auto; }
+
+  /* ---------- ABOUT ---------- */
+  .about-card .inner{ font-size:1.02rem; color:var(--pencil); }
+  .about-card .inner strong{ color:var(--blue-deep); }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:flex; flex-wrap:wrap; gap:.8rem 1rem;
+  }
+  .skill-chip{
+    position:relative;
+    font-family:'Kalam', cursive;
+    font-size:1rem;
+    padding:.55rem 1rem .55rem 2.6rem;
+    color:var(--blue-deep);
+    background:#fff;
+  }
+  .skill-chip svg.chip-bg{ position:absolute; inset:0; width:100%; height:100%; }
+  .skill-chip .chip-icon{
+    position:absolute; left:.65rem; top:50%; transform:translateY(-50%);
+    width:20px;height:20px; stroke:var(--orange);
+  }
+  .skill-chip span{ position:relative; }
+  .skill-chip:nth-child(3n+1){ transform:rotate(-1.4deg); }
+  .skill-chip:nth-child(3n+2){ transform:rotate(1deg); }
+  .skill-chip:nth-child(3n+3){ transform:rotate(-.6deg); }
+
+  /* ---------- EXPERIENCE (chat thread) ---------- */
+  .thread{ display:flex; flex-direction:column; gap:1.6rem; }
+  .msg-row{ display:flex; gap:.9rem; align-items:flex-start; }
+  .msg-row.mine{ flex-direction:row-reverse; text-align:right; }
+  .avatar{
+    flex:0 0 auto; width:46px; height:46px; border-radius:50%;
+    background:var(--blue); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:'Space Mono',monospace; font-weight:700; font-size:.85rem;
+    border:2.5px solid var(--pencil);
+  }
+  .msg-row.mine .avatar{ background:var(--orange); }
+  .bubble-wrap{ max-width:min(560px,78%); position:relative; }
+  .bubble{ padding:1.1rem 1.3rem; position:relative; }
+  .bubble .inner{ padding:0; }
+  .bubble h3{ font-size:1.2rem; margin-bottom:.15rem; }
+  .bubble .company{
+    font-family:'Space Mono', monospace; font-size:.78rem;
+    color:var(--blue); margin-bottom:.55rem; display:block;
+  }
+  .bubble ul{ margin:.3rem 0 0; padding-left:1.15rem; }
+  .bubble li{ margin-bottom:.35rem; color:var(--pencil); }
+  .msg-meta{
+    font-family:'Space Mono', monospace; font-size:.72rem; color:#7a6f5e;
+    margin-top:.35rem;
+  }
+  .msg-row.mine .msg-meta{ text-align:right; }
+  .msg-row:not(.mine) .msg-meta{ text-align:left; }
+
+  /* ---------- EDU / LANG ---------- */
+  .two-col{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:1.4rem;
+  }
+  @media (max-width:640px){ .two-col{ grid-template-columns:1fr; } }
+  .edu-card h3{ font-size:1.15rem; }
+  .edu-card .school{ font-family:'Space Mono',monospace; font-size:.85rem; color:var(--blue); }
+  .lang-list{ display:flex; gap:.8rem; flex-wrap:wrap; margin-top:.4rem; }
+  .lang-pill{
+    font-family:'Kalam', cursive; font-size:1rem;
+    background:var(--orange-soft); border:2px solid var(--pencil);
+    border-radius:30px; padding:.4rem 1rem;
+    transform:rotate(-1deg);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    margin-top:2rem; padding:2.4rem 0 3rem;
+    border-top:2.5px dashed var(--pencil);
+    text-align:center;
+  }
+  footer h2{ font-size:1.7rem; margin-bottom:.5rem; }
+  footer p{ color:var(--pencil); max-width:44ch; margin:0 auto 1.2rem; }
+  .contact-buttons{ display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap; }
+  .btn{
+    position:relative;
+    font-family:'Kalam', cursive; font-size:1.05rem;
+    padding:.65rem 1.4rem;
+    text-decoration:none; color:var(--ink);
+    display:inline-flex; align-items:center; gap:.5rem;
+  }
+  .btn svg.btn-bg{ position:absolute; inset:0; width:100%; height:100%; }
+  .btn.primary{ color:#fff; }
+  .btn span{ position:relative; }
+  .btn svg.icon{ position:relative; width:18px; height:18px; }
+  .footer-note{
+    margin-top:2rem; font-family:'Space Mono',monospace; font-size:.75rem; color:#8a7f6c;
+  }
+
+  ::selection{ background:var(--orange-soft); }
+
+  @media (prefers-reduced-motion: reduce){
+    .eyebrow .dot{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4c3-1 6-1 8 0s5 1 8 0v13c-3 1-6 1-8 0s-5-1-8 0V4z"/>
+        <path d="M12 4v13"/>
+      </svg>
+      Julie Anne Baron
+    </div>
+    <nav class="topnav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> status: online &amp; ready to help</div>
+      <h1>
+        Julie Anne Baron
+        <svg class="underline" viewBox="0 0 420 16" preserveAspectRatio="none" width="100%" height="14">
+          <path d="M4 10 C 80 2, 160 14, 240 6 S 380 2, 416 9" fill="none" stroke="var(--orange)" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </h1>
+      <div class="role">Customer Service Specialist / Process Executive</div>
+      <p class="summary">Customer service professional with 7 years supporting U.S. and international clients across chat, email, and phone. Skilled in issue resolution, escalations, account support, and compliance &amp; policy adherence.</p>
+      <div class="hero-contacts">
+        <a href="tel:+639093510981">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +63 909 351 0981
+        </a>
+        <a href="mailto:baronjulie.ja@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+          baronjulie.ja@gmail.com
+        </a>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Quezon City, Philippines
+        </span>
+      </div>
+    </div>
+
+    <div class="hero-doodle">
+      <!-- hand-drawn headset + chat bubble doodle -->
+      <svg viewBox="0 0 240 240" width="100%" height="100%">
+        <g transform="rotate(-3 120 120)">
+          <path d="M60 120 C 58 70, 90 40, 120 40 C 150 40, 182 70, 180 120" fill="none" stroke="var(--blue-deep)" stroke-width="6" stroke-linecap="round"/>
+          <rect x="46" y="110" width="30" height="46" rx="14" fill="var(--orange-soft)" stroke="var(--pencil)" stroke-width="4"/>
+          <rect x="164" y="110" width="30" height="46" rx="14" fill="var(--blue-soft)" stroke="var(--pencil)" stroke-width="4"/>
+          <path d="M76 150 C 90 178, 150 178, 164 150" fill="none" stroke="var(--pencil)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M120 178 v14" stroke="var(--pencil)" stroke-width="4" stroke-linecap="round"/>
+          <rect x="96" y="190" width="48" height="10" rx="5" fill="var(--orange)" stroke="var(--pencil)" stroke-width="3"/>
+        </g>
+        <g transform="translate(148 24) rotate(6)">
+          <path d="M2 18 C 2 6, 12 0, 26 0 H 70 C 84 0, 92 6, 92 18 C 92 30, 84 36, 70 36 H 26 L 8 48 L 14 34 C 6 30, 2 25, 2 18 Z"
+                fill="#fff" stroke="var(--pencil)" stroke-width="4"/>
+          <circle cx="26" cy="18" r="4.5" fill="var(--orange)"/>
+          <circle cx="47" cy="18" r="4.5" fill="var(--blue)"/>
+          <circle cx="68" cy="18" r="4.5" fill="var(--orange)"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/><path d="M12 8v4l3 2"/></svg>
+      <h2>About</h2>
+      <span class="tag">summary.txt</span>
+    </div>
+    <div class="sketch-card about-card" data-sketch="rect">
+      <svg class="sketch-border"></svg>
+      <div class="inner">
+        <p>I've spent the last <strong>7 years</strong> in the BPO industry helping U.S. and international customers — over chat windows, inboxes, and phone lines — actually get their problems solved. I like the detective work of root-cause analysis almost as much as the moment a frustrated customer says "thank you, that's exactly what I needed." Along the way I've handled everything from streaming account escalations to ad-account troubleshooting to retention calls, always with an eye on compliance and policy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+      <h2>Skills</h2>
+      <span class="tag">toolbox</span>
+    </div>
+    <div class="skills-grid" id="skillsGrid">
+      <div class="skill-chip" data-icon="chat"><svg class="chip-bg"></svg><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span>Customer Support (chat, email, phone)</span></div>
+      <div class="skill-chip" data-icon="ticket"><svg class="chip-bg"></svg><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2a2 2 0 0 0 0 6v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-6z"/></svg><span>Ticket Resolution &amp; Escalations</span></div>
+      <div class="skill-chip" data-icon="search"><svg class="chip-bg"></svg><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>Root Cause Analysis</span></div>
+      <div class="skill-chip" data-icon="db"><svg class="chip-bg"></svg><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span>CRM &amp; Case Management</span></div>
+      <div class="skill-chip" data-icon="chart"><svg class="chip-bg"></svg><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg><span>Data Analysis &amp; Reporting</span></div>
+      <div class="skill-chip" data-icon="check"><svg class="chip-bg"></svg><svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span>Quality &amp; KPI Driven</span></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4c3-1 6-1 8 0s5 1 8 0v13c-3 1-6 1-8 0s-5-1-8 0V4z"/><path d="M12 4v13"/></svg>
+      <h2>Experience</h2>
+      <span class="tag">chat_history</span>
+    </div>
+
+    <div class="thread" id="thread">
+
+      <div class="msg-row mine">
+        <div class="avatar">CTS</div>
+        <div class="bubble-wrap">
+          <div class="sketch-card bubble" data-sketch="bubble-right">
+            <svg class="sketch-border"></svg>
+            <div class="inner">
+              <h3>Process Executive — Online Streaming Account</h3>
+              <span class="company">Cognizant Technology Solutions</span>
+              <ul>
+                <li>Resolved customer inquiries across chat, email, and phone for a global streaming platform, consistently meeting or exceeding SLA targets.</li>
+                <li>Handled policy and compliance-sensitive inquiries.</li>
+                <li>Partnered with cross-functional teams to flag recurring escalation patterns.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="msg-meta">July 2025 – Jan 2026</div>
+        </div>
+      </div>
+
+      <div class="msg-row">
+        <div class="avatar">TDCX</div>
+        <div class="bubble-wrap">
+          <div class="sketch-card bubble" data-sketch="bubble-left">
+            <svg class="sketch-border"></svg>
+            <div class="inner">
+              <h3>Client Service Associate — Social Media Ads (META)</h3>
+              <span class="company">TDCX Philippines</span>
+              <ul>
+                <li>Helped clients manage advertising accounts and campaigns; troubleshot social media / monetization accounts across chat, calls, and email.</li>
+                <li>Served as key support expert to agents from onboarding (nesting period) through production.</li>
+                <li>Used Tableau to analyze data, determine root cause, and act on findings.</li>
+                <li>Developed and executed team strategies.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="msg-meta">Feb 2023 – Mar 2025</div>
+        </div>
+      </div>
+
+      <div class="msg-row mine">
+        <div class="avatar">24/7</div>
+        <div class="bubble-wrap">
+          <div class="sketch-card bubble" data-sketch="bubble-right">
+            <svg class="sketch-border"></svg>
+            <div class="inner">
+              <h3>Chat and Email Support — U.S. Retail</h3>
+              <span class="company">24/7 InTouch</span>
+              <ul>
+                <li>Handled real-time support for order processing, order status, replacements, and refunds; managed payment transactions and inquiries.</li>
+                <li>Assisted customers with product information, recommendations, and specifications to support informed purchasing decisions.</li>
+                <li>Identified and flagged fraudulent order patterns, preventing losses and creating proper documentation and escalation.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="msg-meta">Oct 2021 – Aug 2022</div>
+        </div>
+      </div>
+
+      <div class="msg-row">
+        <div class="avatar">AFNI</div>
+        <div class="bubble-wrap">
+          <div class="sketch-card bubble" data-sketch="bubble-left">
+            <svg class="sketch-border"></svg>
+            <div class="inner">
+              <h3>Retention and Sales Service Representative</h3>
+              <span class="company">AFNI Philippines</span>
+              <ul>
+                <li>Retained customers by offering competitive deals, service upgrades, and packages suited to their entertainment and connectivity needs.</li>
+                <li>Generated upsell revenue through tailored retention offers.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="msg-meta">Mar 2019 – Aug 2021</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
+      <h2>Education &amp; Languages</h2>
+      <span class="tag">profile.json</span>
+    </div>
+    <div class="two-col">
+      <div class="sketch-card edu-card" data-sketch="rect">
+        <svg class="sketch-border"></svg>
+        <div class="inner">
+          <h3>Bachelor of Science in Industrial Engineering</h3>
+          <div class="school">Quezon City University</div>
+        </div>
+      </div>
+      <div class="sketch-card edu-card" data-sketch="rect">
+        <svg class="sketch-border"></svg>
+        <div class="inner">
+          <h3>Languages</h3>
+          <div class="lang-list">
+            <span class="lang-pill">English</span>
+            <span class="lang-pill">Filipino</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk 💬</h2>
+    <p>Open to customer service, process, and support roles. Message me — I usually reply fast (old habit).</p>
+    <div class="contact-buttons">
+      <a class="btn primary sketch-btn" data-sketch="btn-fill" href="mailto:baronjulie.ja@gmail.com">
+        <svg class="btn-bg"></svg>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        <span>Email me</span>
+      </a>
+      <a class="btn sketch-btn" data-sketch="btn-outline" href="tel:+639093510981">
+        <svg class="btn-bg"></svg>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--blue-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call me</span>
+      </a>
+    </div>
+    <div class="footer-note">Quezon City, Philippines · built with pencil, paper &amp; a little HTML</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if (typeof rough === "undefined") return;
+
+  function seedFor(el, salt){
+    // stable-ish pseudo-random seed based on element position in DOM
+    var idx = Array.prototype.indexOf.call(document.querySelectorAll('.sketch-card, .sketch-btn'), el);
+    return (idx + 1) * 37 + salt;
+  }
+
+  function drawRect(svg, w, h, opts){
+    var rc = rough.svg(svg);
+    var node = rc.rectangle(3, 3, Math.max(w-6,1), Math.max(h-6,1), opts);
+    svg.appendChild(node);
+  }
+
+  function drawBubble(svg, w, h, side, opts){
+    var rc = rough.svg(svg);
+    var r = 14;
+    var tailY = h * 0.72;
+    var pathLeft =
+      "M 20 3 " +
+      "L " + (w-20) + " 3 " +
+      "Q " + (w-3) + " 3 " + (w-3) + " 20 " +
+      "L " + (w-3) + " " + (h-20) + " " +
+      "Q " + (w-3) + " " + (h-3) + " " + (w-20) + " " + (h-3) + " " +
+      "L 26 " + (h-3) + " " +
+      (side === "left" ? ("L 6 " + (h+8) + " L 16 " + (h-6) + " ") : "") +
+      "L 20 " + (h-3) + " " +
+      "Q 3 " + (h-3) + " 3 " + (h-20) + " " +
+      "L 3 20 " +
+      "Q 3 3 20 3 Z";
+    var pathRight =
+      "M 20 3 " +
+      "L " + (w-20) + " 3 " +
+      "Q " + (w-3) + " 3 " + (w-3) + " 20 " +
+      "L " + (w-3) + " " + (h-20) + " " +
+      "Q " + (w-3) + " " + (h-3) + " " + (w-24) + " " + (h-3) + " " +
+      (side === "right" ? ("L " + (w-16) + " " + (h-6) + " L " + (w-6) + " " + (h+8) + " ") : "") +
+      "L 20 " + (h-3) + " " +
+      "Q 3 " + (h-3) + " 3 " + (h-20) + " " +
+      "L 3 20 " +
+      "Q 3 3 20 3 Z";
+    var d = side === "left" ? pathLeft : pathRight;
+    var node = rc.path(d, opts);
+    svg.appendChild(node);
+  }
+
+  function render(el){
+    var kind = el.getAttribute('data-sketch');
+    var svg = el.querySelector('svg.sketch-border, svg.btn-bg, svg.chip-bg');
+    if (!svg) return;
+    var w = el.offsetWidth, h = el.offsetHeight;
+    if (w < 4 || h < 4) return;
+    svg.setAttribute('width', w);
+    svg.setAttribute('height', h);
+    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    svg.innerHTML = '';
+
+    var seed = seedFor(el, w+h);
+    var baseOpts = { roughness: 1.6, bowing: 1.2, seed: seed, strokeWidth: 2.4 };
+
+    if (kind === 'rect'){
+      drawRect(svg, w, h, Object.assign({}, baseOpts, {
+        stroke:getVar('--pencil'), fill:'#fffdf8', fillStyle:'solid'
+      }));
+    } else if (kind === 'bubble-left' || kind === 'bubble-right'){
+      var side = kind === 'bubble-left' ? 'left' : 'right';
+      drawBubble(svg, w, h, side, Object.assign({}, baseOpts, {
+        stroke:getVar('--pencil'), fill:'#ffffff', fillStyle:'solid'
+      }));
+    } else if (kind === 'btn-fill'){
+      drawRect(svg, w, h, Object.assign({}, baseOpts, {
+        stroke:getVar('--pencil'), fill:getVar('--orange'), fillStyle:'solid', roughness:1.9
+      }));
+    } else if (kind === 'btn-outline'){
+      drawRect(svg, w, h, Object.assign({}, baseOpts, {
+        stroke:getVar('--pencil'), fill:getVar('--blue-soft'), fillStyle:'solid', roughness:1.9
+      }));
+    }
+  }
+
+  function renderChip(el){
+    var svg = el.querySelector('svg.chip-bg');
+    var w = el.offsetWidth, h = el.offsetHeight;
+    if (!svg || w < 4 || h < 4) return;
+    svg.setAttribute('width', w);
+    svg.setAttribute('height', h);
+    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    svg.innerHTML = '';
+    var rc = rough.svg(svg);
+    var seed = Math.round(w*3 + h*7);
+    var node = rc.rectangle(2.5, 2.5, w-5, h-5, {
+      roughness:1.7, bowing:1.3, seed:seed, strokeWidth:2.2,
+      stroke: getVar('--pencil'), fill:'#ffffff', fillStyle:'solid'
+    });
+    svg.appendChild(node);
+  }
+
+  function getVar(name){
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  function renderAll(){
+    document.querySelectorAll('.sketch-card, .sketch-btn').forEach(render);
+    document.querySelectorAll('.skill-chip').forEach(renderChip);
+  }
+
+  window.addEventListener('load', renderAll);
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(renderAll, 150);
+  });
+})();
+</script>
+
+</body>
+</html>
