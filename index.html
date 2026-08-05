@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Julie Anne Baron — Customer Service &amp; Process Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A2540;
+    --ocean:#123C69;
+    --sky:#2E6FA3;
+    --sunset:#F4622D;
+    --amber:#FFA94D;
+    --sand:#FBF5EE;
+    --ink:#1E2A38;
+    --muted:#5C6B7A;
+    --max:1080px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.65;
+  }
+  h1,h2,h3{font-family:'Sora', sans-serif; color:var(--navy); letter-spacing:-0.01em;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 30px;}
+  img,svg{display:block;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,245,238,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(10,37,64,0.08);
+  }
+  nav .wrap{display:flex; justify-content:space-between; align-items:center; height:66px;}
+  .brand{font-family:'Sora', sans-serif; font-weight:700; font-size:16px; color:var(--navy);}
+  .brand span{color:var(--sunset);}
+  nav ul{list-style:none; display:flex; gap:30px;}
+  nav a{
+    text-decoration:none; font-size:13.5px; font-weight:500;
+    color:var(--muted); transition:color .15s ease;
+  }
+  nav a:hover{color:var(--sunset);}
+  .nav-toggle{display:none; background:none; border:none; font-size:22px; color:var(--navy); cursor:pointer;}
+
+  /* ---------- HERO: HORIZON ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(180deg, var(--navy) 0%, var(--ocean) 38%, var(--sky) 62%, var(--sunset) 100%);
+    padding:100px 0 0;
+    color:#fff;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(38px, 6vw, 64px);
+    color:#fff;
+    line-height:1.05;
+    max-width:760px;
+    margin-bottom:20px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg, #fff, var(--amber));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.lede{
+    font-size:18px;
+    color:rgba(255,255,255,0.82);
+    max-width:540px;
+    margin-bottom:34px;
+  }
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px;}
+  .btn{
+    display:inline-block; padding:13px 24px; border-radius:100px;
+    font-size:14px; font-weight:600; text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--sunset); color:#fff; box-shadow:0 8px 24px rgba(244,98,45,0.35);}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,0.5); color:#fff;}
+
+  /* sun arc: rises (sunrise = start of career) to sets (sunset = current, always-on) */
+  .arc-strip{
+    position:relative;
+    padding-bottom:0;
+    margin-top:10px;
+  }
+  .arc-track{
+    position:relative;
+    height:120px;
+  }
+  .arc-track svg{width:100%; height:100%; overflow:visible;}
+  .arc-labels{
+    display:flex; justify-content:space-between;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:rgba(255,255,255,0.65);
+    padding-bottom:34px;
+    letter-spacing:.04em;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:80px 0;}
+  .section-head{display:flex; align-items:baseline; gap:16px; margin-bottom:38px;}
+  .section-head .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; color:var(--sunset);
+    border:1px solid rgba(244,98,45,0.35);
+    padding:4px 10px; border-radius:100px;
+  }
+  .section-head h2{font-size:28px;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:52px;
+    align-items:start;
+  }
+  .about-grid p{margin-bottom:16px; font-size:15.5px; color:var(--ink);}
+  .about-grid p:last-child{margin-bottom:0;}
+  .stat-row{display:flex; flex-direction:column; gap:14px;}
+  .stat-card{
+    background:#fff;
+    border:1px solid rgba(10,37,64,0.08);
+    border-radius:12px;
+    padding:20px 22px;
+    position:relative;
+    overflow:hidden;
+  }
+  .stat-card::before{
+    content:'';
+    position:absolute; left:0; top:0; bottom:0; width:4px;
+    background:linear-gradient(180deg, var(--sky), var(--sunset));
+  }
+  .stat-card .num{font-family:'Sora', sans-serif; font-size:30px; font-weight:800; color:var(--ocean);}
+  .stat-card .cap{font-size:12.5px; color:var(--muted); margin-top:2px;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:26px 44px;}
+  .skill-row .top{
+    display:flex; justify-content:space-between;
+    font-size:14px; font-weight:600; color:var(--navy);
+    margin-bottom:8px;
+  }
+  .skill-row .top .mono{font-size:11.5px; color:var(--sunset); font-weight:500;}
+  .meter{height:7px; border-radius:4px; background:rgba(10,37,64,0.08); overflow:hidden;}
+  .meter i{display:block; height:100%; border-radius:4px; background:linear-gradient(90deg, var(--ocean), var(--sunset));}
+
+  /* ---------- EXPERIENCE: HORIZON TIMELINE ---------- */
+  .timeline{position:relative; padding-left:32px;}
+  .timeline::before{
+    content:'';
+    position:absolute; left:6px; top:6px; bottom:6px; width:2px;
+    background:linear-gradient(180deg, var(--ocean), var(--sunset));
+  }
+  .t-step{position:relative; padding-bottom:44px;}
+  .t-step:last-child{padding-bottom:0;}
+  .t-step::before{
+    content:'';
+    position:absolute; left:-32px; top:4px;
+    width:15px; height:15px; border-radius:50%;
+    background:#fff; border:3px solid var(--sunset);
+  }
+  .t-step .when{
+    font-family:'JetBrains Mono', monospace; font-size:12px;
+    color:var(--sky); text-transform:uppercase; letter-spacing:.05em;
+    margin-bottom:5px;
+  }
+  .t-step h3{font-size:19px; margin-bottom:3px;}
+  .t-step .org{font-size:13.5px; color:var(--muted); margin-bottom:10px;}
+  .t-step ul{padding-left:18px; font-size:14.5px;}
+  .t-step li{margin-bottom:6px;}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-card{
+    background:#fff;
+    border:1px solid rgba(10,37,64,0.08);
+    border-radius:14px;
+    padding:26px 28px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+  }
+  .edu-card h3{font-size:18px; margin-bottom:4px;}
+  .edu-card .org{font-size:14px; color:var(--muted);}
+  .edu-card .when{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px;
+    color:#fff; background:var(--sunset);
+    padding:6px 14px; border-radius:100px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  footer.contact{
+    background:linear-gradient(180deg, var(--navy), var(--ocean) 70%);
+    color:#fff;
+    padding:76px 0 40px;
+    margin-top:20px;
+  }
+  footer.contact h2{color:#fff; font-size:30px; margin-bottom:12px;}
+  footer.contact p{color:rgba(255,255,255,0.75); max-width:480px; margin-bottom:30px; font-size:15px;}
+  .contact-list{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:46px;}
+  .contact-list a{
+    font-size:13.5px; text-decoration:none;
+    border:1px solid rgba(255,255,255,0.25);
+    padding:11px 18px; border-radius:100px;
+    color:#fff;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .contact-list a:hover{background:rgba(244,98,45,0.15); border-color:var(--sunset);}
+  .fine{
+    border-top:1px solid rgba(255,255,255,0.12);
+    padding-top:24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px; color:rgba(255,255,255,0.5);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:760px){
+    nav ul{gap:18px;}
+    .about-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    .arc-labels{font-size:10px;}
+  }
+  @media (max-width:520px){
+    nav ul{
+      position:fixed; top:66px; left:0; right:0;
+      background:var(--sand);
+      flex-direction:column; padding:18px 30px; gap:16px;
+      display:none;
+      border-bottom:1px solid rgba(10,37,64,0.08);
+    }
+    nav ul.open{display:flex;}
+    .nav-toggle{display:block;}
+    .edu-card{flex-direction:column; align-items:flex-start;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+  :focus-visible{outline:2px solid var(--sunset); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Julie Anne Baron<span>.</span></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    <ul id="navMenu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Customer Service &amp; Process Specialist</div>
+    <h1>Support that runs <em>sunrise to sunset</em> — and never drops a thread.</h1>
+    <p class="lede">7 years of hands-on customer service across chat, email, and phone, sharpened by an industrial engineer's instinct for fixing broken processes, not just closing tickets.</p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn btn-primary">View Experience</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+
+    <div class="arc-strip">
+      <div class="arc-track">
+        <svg viewBox="0 0 1000 140" preserveAspectRatio="none">
+          <path d="M 0 130 Q 500 -60 1000 130" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-dasharray="6 8"/>
+          <circle cx="60" cy="120" r="7" fill="#fff"/>
+          <circle cx="500" cy="8" r="9" fill="var(--amber)"/>
+          <circle cx="940" cy="120" r="7" fill="var(--sunset)"/>
+        </svg>
+      </div>
+      <div class="arc-labels">
+        <span>FIRST ROLE</span>
+        <span>PROCESS FOCUS</span>
+        <span>TODAY — 7 YRS IN</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><span class="tag mono">01</span><h2>About</h2></div>
+      <div class="about-grid">
+        <div>
+          <p>I've spent seven years on the front line of customer service and process execution, supporting U.S. and international clients across chat, email, and phone. Along the way, I've learned that good support isn't just about being pleasant on a call — it's about noticing where a process wastes time, and fixing it.</p>
+          <p>That instinct comes from my training as an industrial engineer. I hold a B.S. in Industrial Engineering from Quezon City University, which gave me a structured way to look at workflows: where the bottlenecks are, how to measure them, and how to redesign them so both the customer and the team win.</p>
+          <p>Today I bring both sides together — the empathy and communication skill of a career CSR, and the analytical habits of an engineer — to help teams handle more, faster, without losing the human touch.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat-card"><div class="num">7+</div><div class="cap">Years in BPO / Customer Service</div></div>
+          <div class="stat-card"><div class="num">3</div><div class="cap">Support Channels Handled Daily</div></div>
+          <div class="stat-card"><div class="num">B.S.</div><div class="cap">Industrial Engineering, QCU</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" style="background:#fff; border-top:1px solid rgba(10,37,64,0.06); border-bottom:1px solid rgba(10,37,64,0.06);">
+    <div class="wrap">
+      <div class="section-head"><span class="tag mono">02</span><h2>Skills</h2></div>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <div class="top"><span>Customer &amp; Client Support</span><span class="mono">EXPERT</span></div>
+          <div class="meter"><i style="width:95%"></i></div>
+        </div>
+        <div class="skill-row">
+          <div class="top"><span>Process Mapping &amp; Improvement</span><span class="mono">ADVANCED</span></div>
+          <div class="meter"><i style="width:85%"></i></div>
+        </div>
+        <div class="skill-row">
+          <div class="top"><span>Multichannel Support (Chat/Email/Phone)</span><span class="mono">EXPERT</span></div>
+          <div class="meter"><i style="width:95%"></i></div>
+        </div>
+        <div class="skill-row">
+          <div class="top"><span>Conflict Resolution &amp; De-escalation</span><span class="mono">ADVANCED</span></div>
+          <div class="meter"><i style="width:88%"></i></div>
+        </div>
+        <div class="skill-row">
+          <div class="top"><span>Quality &amp; SLA Monitoring</span><span class="mono">ADVANCED</span></div>
+          <div class="meter"><i style="width:82%"></i></div>
+        </div>
+        <div class="skill-row">
+          <div class="top"><span>Workflow &amp; Systems Documentation</span><span class="mono">PROFICIENT</span></div>
+          <div class="meter"><i style="width:75%"></i></div>
+        </div>
+      </div>
+      <p style="margin-top:24px; font-size:13px; color:var(--muted);" class="mono">// Edit the widths above (%) to match your own self-rating.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head"><span class="tag mono">03</span><h2>Experience</h2></div>
+      <div class="timeline">
+
+        <div class="t-step">
+          <div class="when">Most Recent</div>
+          <h3>Process Executive</h3>
+          <div class="org">Company Name — Quezon City, PH</div>
+          <ul>
+            <li>Replace with your actual responsibilities — e.g. handled escalated client queries across chat and email, maintaining a [X]% satisfaction score.</li>
+            <li>Add a process-improvement win — e.g. mapped the ticket-routing workflow and cut average handle time by [X]%.</li>
+            <li>Add a collaboration or training highlight — e.g. onboarded and mentored new hires on tools and SOPs.</li>
+          </ul>
+        </div>
+
+        <div class="t-step">
+          <div class="when">Previous Role</div>
+          <h3>Customer Service Specialist</h3>
+          <div class="org">Company Name — Quezon City, PH</div>
+          <ul>
+            <li>Replace with a real achievement — e.g. supported [product/account] via phone and chat for U.S.-based customers.</li>
+            <li>Add a metric — e.g. maintained a [X]% CSAT score across [N] monthly interactions.</li>
+          </ul>
+        </div>
+
+        <div class="t-step">
+          <div class="when">Earlier Role</div>
+          <h3>Job Title</h3>
+          <div class="org">Company Name — Location</div>
+          <ul>
+            <li>Add your earliest relevant BPO role and key responsibility here.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="education" style="background:#fff; border-top:1px solid rgba(10,37,64,0.06); border-bottom:1px solid rgba(10,37,64,0.06);">
+    <div class="wrap">
+      <div class="section-head"><span class="tag mono">04</span><h2>Education</h2></div>
+      <div class="edu-card">
+        <div>
+          <h3>Bachelor of Science in Industrial Engineering</h3>
+          <div class="org">Quezon City University</div>
+        </div>
+        <div class="when">Add graduation year</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk.</h2>
+    <p>Open to customer service, process improvement, or operations roles. Reach out through any of the channels below.</p>
+    <div class="contact-list">
+      <a href="mailto:youremail@example.com">✉ youremail@example.com</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">in/yourprofile</a>
+      <a href="tel:+639000000000">+63 900 000 0000</a>
+    </div>
+    <div class="fine">
+      <span>© 2026 Julie Anne Baron</span>
+      <span>Built with HTML/CSS · Hosted on GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navMenu').classList.toggle('open');
+  });
+  document.querySelectorAll('#navMenu a').forEach(function(link){
+    link.addEventListener('click', function(){
+      document.getElementById('navMenu').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
